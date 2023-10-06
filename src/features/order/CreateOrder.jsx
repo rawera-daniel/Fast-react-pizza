@@ -26,8 +26,6 @@ function CreateOrder() {
   } = useSelector((store) => store.user);
   const isLoadingAddress = addressStatus === "loading";
 
-  console.log(address);
-
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
 
@@ -147,8 +145,6 @@ export async function action({ request }) {
     ...data,
     cart: JSON.parse(data.cart),
   };
-
-  console.log(order);
 
   const errors = {};
   if (!isValidPhone(order.phone))
